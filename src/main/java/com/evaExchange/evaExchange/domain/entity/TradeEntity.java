@@ -9,26 +9,26 @@ import org.hibernate.annotations.UpdateTimestamp;
 import java.util.Date;
 
 @Entity
-@Table(name = "t_exchange_stock",schema = "eva_schema")
+@Table(name = "t_trade",schema = "eva_schema")
 @Data
 @DynamicUpdate
-public class ExchangeStockEntity {
+public class TradeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "exchange_name", nullable = false)
-    private String exchangeName;
+    @Column(name = "exchange_stock_id")
+    private Long exchangeStockId;
 
-    @Column(name = "currency_type", nullable = false)
-    private String currencyType;
+    @Column(name = "user_id")
+    private Long userId;
 
-    @Column(name = "exchange_amount")
-    private Long exchangeAmount;
+    @Column(name = "unit_amount")
+    private Long unitAmount;
 
-    @Column(name = "exchange_unit_price")
-    private double exchangeUnitPrice;
+    @Column(name = "total_amount_price")
+    private double totalAmountPrice;
 
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
@@ -54,5 +54,4 @@ public class ExchangeStockEntity {
 
     @Column(name = "is_deleted")
     private Boolean isDeleted;
-
 }
